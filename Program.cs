@@ -18,14 +18,17 @@ namespace InteractiveConsoleApp
             Console.WriteLine("Operation mode: + ");
             //Parametros a calcular
             Console.Write("Enter a number: ");
-            int num1 = Convert.ToInt32(Console.ReadLine());
+            double num1 = Convert.ToDouble(Console.ReadLine());
             Console.Write("Enter another number: ");
-            int num2 = Convert.ToInt32(Console.ReadLine());
-            int result = num1 + num2;
+            double num2 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter another number: ");
+            double num3 = Convert.ToDouble(Console.ReadLine());
+            double result = num1 + num2 + num3;
+            Console.WriteLine("");
+            Console.WriteLine("Final Operation:\n");
 
-            Console.WriteLine("updated line");
-
-            Console.WriteLine(num1 + "+" + num2 + "=" + result);
+            Console.WriteLine(num1 + "+" + num2 + "+" + num3 + "=" + result + "\n");
+            Console.WriteLine("Raw Result: " + result);
 
             Console.ReadLine(); //Lectura final
         }
