@@ -10,6 +10,7 @@ namespace InteractiveConsoleApp
     {
         public static int missCount= 0;
         public static int missLimit= 3;
+        public static string calcMode;
     }
     class Program
     {
@@ -33,9 +34,9 @@ namespace InteractiveConsoleApp
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("\nSeleccione el modo a utilizar (+, -, *, /) : ");
-            string calcMode = Convert.ToString(Console.ReadLine());
+            globalVariables.calcMode = Convert.ToString(Console.ReadLine());
             Console.ForegroundColor = ConsoleColor.White;
-            switch(calcMode)
+            switch(globalVariables.calcMode)
             {
                 case "+":
                     Console.WriteLine("\nModo de Suma activada\nFormato: a + b + c (only numbers, otherwise it will crash)");
@@ -64,33 +65,34 @@ namespace InteractiveConsoleApp
                     ModeSelect();
                     break;
             }
-            Console.ReadLine();
         }
 
         static void ObtenerVariables(string mode)
         {
-            //int missCounter;
+            double[] num = {0, 0, 0};
+            //Start
             Console.ForegroundColor = ConsoleColor.White;
+            //Operador
             Console.Write("a. Enter a number: ");
-            double num1 = Convert.ToDouble(Console.ReadLine());
+            num[0] = Convert.ToDouble(Console.ReadLine());
             Console.Write("b. Enter another number: ");
-            double num2 = Convert.ToDouble(Console.ReadLine());
+            num[1] = Convert.ToDouble(Console.ReadLine());
             Console.Write("c. Enter another number: ");
-            double num3 = Convert.ToDouble(Console.ReadLine());
+            num[2] = Convert.ToDouble(Console.ReadLine());
             //Enviar variables a su respectivo operador
             switch(mode)
             {
                 case "+":
-                    OperatorMode3(num1, num2, num3, "+");
+                    OperatorMode3(num[0], num[1], num[2], "+");
                     break;
                 case "-":
-                    OperatorMode3(num1, num2, num3, "-");
+                    OperatorMode3(num[0], num[1], num[2], "-");
                     break;
                 case "*":
-                    OperatorMode3(num1, num2, num3, "*");
+                    OperatorMode3(num[0], num[1], num[2], "*");
                     break;
                 case "/":
-                    OperatorMode3(num1, num2, num3, "/");
+                    OperatorMode3(num[0], num[1], num[2], "/");
                     break;
                 default:
                     Console.ForegroundColor = ConsoleColor.Red; //Color Rojo
