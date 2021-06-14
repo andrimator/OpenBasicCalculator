@@ -23,6 +23,8 @@ namespace InteractiveConsoleApp
             int num2 = Convert.ToInt32(Console.ReadLine());
             int result = num1 + num2;
 
+            Console.WriteLine("updated line");
+
             Console.WriteLine(num1 + "+" + num2 + "=" + result);
 
             Console.ReadLine(); //Lectura final
